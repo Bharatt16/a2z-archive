@@ -11,16 +11,18 @@ export default async function Navbar() {
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-bg/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-white">
-          <span className="rounded-md bg-brand px-2 py-1 text-xs font-bold text-black">A2Z</span>
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-semibold text-white"
+        >
+          <span className="rounded-md bg-brand px-2 py-1 text-xs font-bold text-black">
+            A2Z
+          </span>
           Archive
         </Link>
         <nav className="flex items-center gap-5 text-sm text-zinc-300">
-          <Link href="/" className="hover:text-white">
-            Sheet
-          </Link>
           <Link href="/archive" className="hover:text-white">
-            Old &amp; Removed
+            Archive
           </Link>
           <Link href="/bookmarks" className="hover:text-white">
             Bookmarks

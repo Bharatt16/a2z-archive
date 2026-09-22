@@ -19,10 +19,17 @@ export default function LoginPage() {
     setError(null);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
-    if (error) {
-      setError(error.message);
-      return;
-    }
+   if (error) {
+  if (error.message.toLowerCase().includes("email not confirmed")) {
+    setError(
+      "Please verify your email address first. Check your inbox for the confirmation link."
+    );
+  } else {
+    setError(error.message);
+  }
+
+  return;
+}
     router.push("/");
     router.refresh();
   }
@@ -30,6 +37,9 @@ export default function LoginPage() {
   return (
     <div className="mx-auto mt-12 max-w-sm rounded-xl border border-border bg-bg-panel p-6">
       <h1 className="mb-6 text-xl font-bold text-white">Sign in</h1>
+      <p className="mb-4 rounded-lg border border-brand/20 bg-brand/5 px-3 py-2 text-xs text-zinc-400">
+  New account? Verify your email from the confirmation link before signing in.
+</p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="email"

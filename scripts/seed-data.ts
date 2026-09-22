@@ -12,10 +12,10 @@
 export interface SeedQuestion {
   title: string;
   difficulty: "Basic" | "Easy" | "Medium" | "Hard";
-  leetcode_url?: string;
-  gfg_url?: string;
-  tuf_url?: string;
-  yt_url?: string;
+leetcode_url?: string | null;
+gfg_url?: string | null;
+tuf_url?: string | null;
+yt_url?: string | null;
   tags?: string[];
 }
 
